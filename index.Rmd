@@ -1,29 +1,41 @@
 ---
-title: "690V HW Dashbord"
+title: "DACSS 690V Tabs Storyboard"
+author: "Patrick Anderson"
 bibliography: testVisual.bib
 output: 
-  flexdashboard::flex_dashboard:
-    orientation: columns
+  flexdashboard::flex_dashboard
 ---
 
 ```{r setup, include=FALSE}
 library(flexdashboard) # always
-library(scales)
 ```
 
-## Intro {.sidebar}
+## Sidebar {.sidebar}
 
-Preparing the dashboard based on the instructions given at @magallanes_reyes_data_2022, and @sievert_flexdashboard_2022.
 
-### References
+Preparing the dashboard based on the instructions given at @magallanes_reyes_data_2022, and @aden-buie_flexdashboard_2023.
 
-::: {#refs}
-:::
+## Column {.tabset .tabset-fade}
 
-## Column {data-width="450"}
 
 ### Homework 1
 
 ```{r}
 readRDS("del1_hw1.rds")
 ```
+
+
+### Homework 2
+
+```{r}
+#readRDS("del2Draft.rds")
+```
+
+### Homework 3
+
+```{r}
+#readRDS("del3Draft.rds")
+```
+
+
+### References 
