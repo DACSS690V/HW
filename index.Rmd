@@ -1,5 +1,5 @@
 ---
-title: "690V HW1 Dashbord"
+title: "690V HW Dashbord"
 bibliography: testVisual.bib
 output: 
   flexdashboard::flex_dashboard:
@@ -22,7 +22,7 @@ Preparing the dashboard based on the instructions given at @magallanes_reyes_dat
 
 ## Column {data-width="450"}
 
-### Public School by City Variation in Washington State
+### Homework 1
 
 ```{r}
 readRDS("del1_hw1.rds")
