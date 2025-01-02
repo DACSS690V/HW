@@ -75,24 +75,23 @@ plot2 <- plot1 + labs(title = titleText,
                       x = NULL, 
                       y = NULL,
                       caption = sourceText)
-?labs
 
-plot3 <- plot2 + geom_hline(yintercept = 25, 
+plot3 <- plot2 + geom_hline(yintercept = 25, #where to put reference line 
                             linetype = "dashed", 
                             linewidth = 1, 
-                            alpha = 0.5)
+                            alpha = 0.5) #reference line
 
 plot4 <- plot3 + scale_y_continuous(breaks = c(0, 10, 20, 30, 40, 50),
-                                    limits = c(0, 50),
-                                    labels = unit_format(suffix = '%'))
+                                    limits = c(0, 50), #max and min of the y axis
+                                    labels = unit_format(suffix = '%')) #y axis information
 
-plot5 <- plot4 + theme(plot.caption = element_text(hjust = 0),
-                       plot.title = element_text(hjust = 0.5),
+plot5 <- plot4 + theme(plot.caption = element_text(hjust = 0), #caption in bottom right
+                       plot.title = element_text(hjust = 0.5), #center title and subtitle
                        plot.subtitle = element_text(hjust = 0.5))
 
 plot6 <- plot5 + geom_text(aes(label = LABELS),
                            vjust = -.1,
-                           size = 6)
+                           size = 6) #had the annotations to the bars
 
 plot6
 

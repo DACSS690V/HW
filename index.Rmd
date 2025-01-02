@@ -28,13 +28,13 @@ readRDS("del1_hw1.rds")
 ### Homework 2
 
 ```{r}
-#readRDS("del2Draft.rds")
+#readRDS("del1_hw2.rds")
 ```
 
 ### Homework 3
 
 ```{r}
-#readRDS("del3Draft.rds")
+#readRDS("del1_hw3.rds")
 ```
 
 
