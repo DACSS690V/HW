@@ -12,6 +12,55 @@ linkMass="https://github.com/DACSS-Visual/tabular_bivar_catcat/raw/refs/heads/ma
 library(rio)
 library(dplyr)
 arrests=rio::import(linkMass,which = 1)
+codes_data=rio::import(linkMass,which = 2)
+
+names(arrests2)
+# Load necessary library
+library(readxl)
+library(dplyr)
+
+
+# Rename columns in the Codes sheet
+codes_data <- codes_data %>%
+  rename(
+    `Arrest Offense by UCR Code` = `Arrest Codes`,
+    `Offense Description` = `...5`
+  )
+
+# Merge the datasets
+merged_data <- arrests %>%
+  left_join(codes_data[, c("Arrest Offense by UCR Code", "Offense Description")],
+            by = "Arrest Offense by UCR Code")
+
+# Replace the UCR Code with the description
+merged_data <- merged_data %>%
+  mutate(`Arrest Offense by UCR Code` = coalesce(`Offense Description`, `Arrest Offense by UCR Code`)) %>%
+  select(-`Offense Description`)
+
+# View the resulting data
+print(head(merged_data))
+
+library(dplyr)
+
+# Update the Race column using case_when
+merged_data <- merged_data %>%
+  mutate(Race = case_when(
+    Race == "B" ~ "Black / African American",
+    Race == "W" ~ "White",
+    Race == "H" ~ "Hispanic",
+    Race == "O" ~ "Asian or Pacific Islander",
+    Race == "I" ~ "American Indian or Alaskan Native",
+    Race == "U" ~ "Unknown",
+    Race == "J" ~ "Middle Eastern or East Indian (South Asia)",
+    Race == "N" ~ "Not Applicable",
+    TRUE ~ Race  # Retain original value if no match
+  ))
+
+merged_data <- merged_data %>%
+  filter(!grepl("^\\d+$", `Arrest Offense by UCR Code`))
+
+arrests <- merged_data %>%
+  filter(`Arrest Offense by UCR Code` %in% codes_data$`Offense Description`)
 
 
 # see data ----------------------------------------------------------
@@ -40,10 +89,11 @@ names(contingencyDF)=c("Race","UCR_Code","counts")
 contingency_mgCol=100*prop.table(contingency,margin = 2)
 #adding marginal
 contingencyDF$pctCol=round(as.data.frame(contingency_mgCol)[,3],1)
-# result for ggplot:
-head(contingencyDF,20)
+
 contingencyDF <- contingencyDF |>
   select(UCR_Code,Race, counts, pctCol)
+# result for ggplot:
+head(contingencyDF,20)
 
 
 # deliverable 2 ----------------------------------------------------------
