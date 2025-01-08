@@ -89,7 +89,7 @@ plot5 <- plot4 + theme(plot.caption = element_text(hjust = 0), #caption in botto
                        plot.title = element_text(hjust = 0.5), #center title and subtitle
                        plot.subtitle = element_text(hjust = 0.5))
 
-plot6 <- plot5 + geom_text(aes(label = LABELS),
+plot6 <- plot5 + geom_text(aes(label = LABELS), #LABELS column are the annotations
                            vjust = -.1,
                            size = 6) #had the annotations to the bars
 

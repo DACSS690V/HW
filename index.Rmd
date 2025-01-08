@@ -28,7 +28,7 @@ readRDS("del1_hw1.rds")
 ### Homework 2
 
 ```{r}
-#readRDS("del1_hw2.rds")
+readRDS("del1_hw2.rds")
 ```
 
 ### Homework 3
