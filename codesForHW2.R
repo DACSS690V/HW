@@ -155,14 +155,16 @@ barsREFacet <- barsREFacet +
   )
 
 del1_hw2 <- barsREFacet + theme(axis.text.y = element_text(size=7,angle = 20), 
-                                axis.text.x = element_text(size = 5)) + 
+                                axis.text.x = element_text(size = 5),
+                                plot.title = element_text(hjust = 0.5),
+                                plot.subtitle = element_text(hjust = 0.5),
+                                plot.caption = element_text(hjust = 0)) + 
   geom_text(aes(label = ifelse(pctCol > 0, pctCol, "")),
             nudge_y = 8, size = 1.75, fontface = "bold", vjust = 0.5) + 
-
-  labs(title= "Percentage of Arrests by UCR Code per Race",
-       subtitle = "Arrest information from January 2019 to March 2020.",
-       caption = "Massachusetts Arrest Data - Field Services and Investigative Divisions",
-       x="",y="Percentages")
+  labs(title= "Robbery and Kidnapping Stand Out by Race",
+       subtitle = "Massachusetts Arrest information (January 2019 - March 2020)",
+       caption = "Source: MA Arrest Data - Field Services and Investigative Divisions",
+       x="",y="Percent (%)")
 
 del1_hw2
 
