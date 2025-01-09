@@ -82,10 +82,13 @@ plot3 <- plot2 + geom_hline(yintercept = 25, #where to put reference line
                             alpha = 0.5) #reference line
 
 plot4 <- plot3 + scale_y_continuous(breaks = c(0, 10, 20, 30, 40, 50),
-                                    limits = c(0, 50), #max and min of the y axis
+                                    limits = c(0, 53), #max and min of the y axis
                                     labels = unit_format(suffix = '%')) #y axis information
 
-plot5 <- plot4 + theme(plot.caption = element_text(hjust = 0), #caption in bottom right
+plot5 <- plot4 + theme(axis.title.y = element_blank(),   # Remove the y-axis title
+                       axis.text.y = element_blank(),    # Remove the y-axis labels
+                       #axis.ticks.y = element_blank(),
+                       plot.caption = element_text(hjust = 0), #caption in bottom right
                        plot.title = element_text(hjust = 0.5), #center title and subtitle
                        plot.subtitle = element_text(hjust = 0.5))
 
