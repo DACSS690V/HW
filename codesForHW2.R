@@ -145,7 +145,7 @@ barsREFacet + theme(axis.text.y = element_text(size=4,angle = 20)) +
             nudge_y = 10)
 
 barsREFacet + theme(axis.text.y = element_text(size=7,angle = 20)) + 
-  geom_text(aes(label=ifelse(pctCol>5,# condition to annotate
+  geom_text(aes(label=ifelse(pctCol>0,# condition to annotate
                              pctCol,"")),
             nudge_y = 10)
 
@@ -156,7 +156,7 @@ barsREFacet <- barsREFacet +
 
 del1_hw2 <- barsREFacet + theme(axis.text.y = element_text(size=7,angle = 20), 
                                 axis.text.x = element_text(size = 5)) + 
-  geom_text(aes(label = ifelse(pctCol > 5, pctCol, "")),
+  geom_text(aes(label = ifelse(pctCol > 0, pctCol, "")),
             nudge_y = 8, size = 1.75, fontface = "bold", vjust = 0.5) + 
 
   labs(title= "Percentage of Arrests by UCR Code per Race",
